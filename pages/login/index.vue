@@ -1,3 +1,8 @@
+
+<script setup>
+
+</script>
+
 <template>
     <div class="container">
         <h1>Área de Login</h1>
@@ -9,11 +14,47 @@
 </template>
 
 <style lang="scss">
+    @import "@/assets/scss/global.scss";
+
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100vh;
+        background-color: $fill-neutral-low-0;
+
+        h1 {
+            font-size: $title-1;
+            color: $text-neutral-low-cta;
+            font-weight: 400;
+            line-height: 46.8px;
+        }
+
+        p {
+            font-size: $body-1;
+            color: $text-neutral-low-default;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        button {
+            background-color: $fill-primary-4;
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $fill-primary-3;
+            }
+
+            &:active {
+                background-color: $fill-primary-5;
+            }
+        }
     }
 </style>

@@ -13,5 +13,8 @@
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.3",
     "sass": "^1.63.6"
+  },
+  "dependencies": {
+    "pinia": "^2.1.4"
   }
 }
