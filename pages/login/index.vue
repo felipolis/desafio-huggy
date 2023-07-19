@@ -1,13 +1,17 @@
 
 <script setup>
+    const url = useRuntimeConfig().app.redirectURL
 
+    const login = () => {
+        console.log(url)
+    }
 </script>
 
 <template>
     <div class="container">
         <h1>Área de Login</h1>
         <p>Faça login para acessar nosso super-aplicativo</p>
-        <button>
+        <button @click="login()">
             Fazer login com a Huggy
         </button>
     </div>
