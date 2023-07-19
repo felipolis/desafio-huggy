@@ -1,9 +1,9 @@
 
 <script setup>
-    const url = useRuntimeConfig().app.redirectURL
+    const config = useRuntimeConfig().app
 
     const login = () => {
-        console.log(url)
+        navigateTo(`https://auth.huggy.app/oauth/authorize?scope=install_app%20read_agent_profile&response_type=code&redirect_uri=${config.redirectURL}&client_id=${config.clientId}`, { external: true })
     }
 </script>
 
