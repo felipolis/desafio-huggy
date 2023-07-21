@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage } from "@vueuse/core";
 
-export const useUserStore = defineStore('token', () => {
+export const useTokenStore = defineStore('token', () => {
     const token = useLocalStorage('token', {
         token_type: 'Bearer',
         expires_in: 0,
