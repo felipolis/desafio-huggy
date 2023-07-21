@@ -12,7 +12,9 @@ export const useTokenStore = defineStore('token', () => {
 
     const setToken = (data) => {
         token.value.token_type = data.token_type
-        token.value.expires_in = data.expires_in
+        token.value.expires_in = new Date().getSeconds(
+            new Date().getSeconds() + data.expires_in
+        )
         token.value.access_token = data.access_token
         token.value.refresh_token = data.refresh_token
     }
