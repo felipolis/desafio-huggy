@@ -17,6 +17,12 @@
         }
     ])
 
+    const selectedUser = ref(null)
+
+    const selectUser = (user) => {
+        selectedUser.value = user
+    }
+
     
 
     const useRefreshToken = async () => {
@@ -53,7 +59,12 @@
                 </div>
                 <div class="cardList">
 
-                    <div class="chatCard" v-for="(user, index) in users" :key="index">
+                    <div 
+                        class="chatCard" 
+                        v-for="(user, index) in users" :key="index"
+                        @click="selectUser(user)"
+                        :class="{'selected': selectedUser === user}"    
+                    >
                         <img class="avatar" :src="user.avatar" alt="avatar" />
                         <div class="messageInfo">
                             <div class="contactName">{{user.name}}</div>
@@ -135,12 +146,17 @@
         overflow-y: scroll;
         padding: 8px 0px 8px 0px;
 
+        .selected {
+            background-color: $fill-primary-0;
+        }
+
         .chatCard {
             width: 100%;
             height: 86px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
+            border-radius: 4px;
             align-items: center;
             padding: 0px 8px 0px 8px;
             gap: 12px;
