@@ -80,13 +80,9 @@
     ])
     
     const userSore = useUserStore()
-    const selectedUser = ref(null)
 
     const selectUser = (user) => {
-        selectedUser.value = user
         userSore.setUser(user)
-        console.log(selectedUser.value)
-        console.log(user)
     }
 
     const useRefreshToken = async () => {
@@ -117,32 +113,25 @@
     <div class="container">
         <div class="main">
             <!-- LEFT -->
-            <div class="inboxSection">
-                <div class="inboxTitle">
-                    <h1>Minhas Mensagens</h1>
-                </div>
-                <div class="cardList">
-
-                    <div 
-                        class="chatCard" 
-                        v-for="(user, index) in users" :key="index"
-                        @click="selectUser(user)"
-                        :class="{'selected': selectedUser?.id === user.id}"    
-                    >
-                        <img class="avatar" :src="user.avatar" alt="avatar" />
-                        <div class="messageInfo">
-                            <div class="contactName">{{user.name}}</div>
-                            <div class="lastMessage">{{user.lastMessage}}</div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            <Inbox :users="users" :selectUser="selectUser" />
 
             <!-- RIGTH -->
             <div class="mensagens">
+                <div v-if="userSore.user.name !== ''">
+                    <!-- HEADER -->
+                    <div class="headerSection">
+                        <div class="avatar">
+                            <img :src="userSore.user.avatar" alt="avatar" />
+                        </div>
+                        <div class="contactName">{{ userSore.user.name }}</div>
+                    </div>
 
+
+
+                </div>
+                <div v-else>
+                    Selecione um usuário
+                </div>
             </div>
         </div>
     </div>
@@ -169,120 +158,46 @@
         width: 80%;
     }
 
-    .inboxSection {
-        min-width: 300px;
-        height: 100%;
-        background-color: $fill-neutral-low-0;
-        border: 1px solid $fill-neutral-low-2;
-        padding-left: 8px;
-        padding-right: 8px;
-
-        ::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    .inboxTitle {
-        width: 100%;
-        height: 10%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding-right: 16px;
-        padding-left: 16px;
-        border-bottom: 2px solid $fill-neutral-low-1;
-
-        h1 {
-            font-size: 20px;
-            font-weight: 500;
-            color: $text-neutral-low-cta;
-        }
-    }
-
-    .selected {
-        background-color: $fill-primary-0;
-
-        .contactName {
-            color: $text-neutral-low-cta !important;
-        }
-    }
-
-    .cardList {
-        width: 100%;
-        height: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 12px;
-        overflow-y: scroll;
-        padding: 8px 0px 8px 0px;
-
-        .chatCard:hover {
-            background-color: $fill-primary-0;
-            box-shadow: 0px 2px 8px 0px #0000001F;
-        }
-
-        .chatCard:active {
-            background-color: $fill-primary-1;
-        }
-
-
-        .chatCard {
-            width: 100%;
-            min-height: 86px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            border-radius: 4px;
-            align-items: center;
-            padding: 0px 8px 0px 8px;
-            gap: 12px;
-            cursor: pointer;
-
-            .avatar {
-                min-width: 52px;
-                max-width: 52px;
-                min-height: 52px;
-                max-height: 52px;
-                border-radius: 8px;
-                border: 1px solid $border-neutral-1;
-            }
-
-            .messageInfo {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-
-                .contactName {
-                    font-size: $body-1;
-                    font-weight: bold;
-                    line-height: 25.6px;
-                    color: $text-neutral-low-strong;
-                }
-
-                .lastMessage {
-                    font-size: $body-2;
-                    font-weight: 400;
-                    line-height: 25.2px;
-                    color: $text-neutral-low-default;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    width: 204px;
-                }
-            }
-        }
-    }
-
-
-
     .mensagens {
         min-width: 510px;
         height: 100%;
-        background-color: blue;
+        display: flex;
+        flex-direction: column;
+
+        .headerSection {
+            width: 510px;
+            height: 64px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding-right: 16px;
+            padding-left: 16px;
+            background-color: $fill-neutral-low-0;
+            gap: 8px;
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid $border-neutral-1;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .contactName {
+                font-size: 16px;
+                font-weight: 600;
+                color: $text-low-strong;
+                font-size: $body-1;
+            }
+        }
+
     }
 </style>
 
