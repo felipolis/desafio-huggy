@@ -14,7 +14,68 @@
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        }
+        },
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        },
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        },
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        },
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        },
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        },
+        
     ])
 
     const selectedUser = ref(null)
@@ -152,7 +213,7 @@
 
         .chatCard {
             width: 100%;
-            height: 86px;
+            min-height: 86px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
