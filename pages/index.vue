@@ -1,11 +1,15 @@
 <script setup>
     import { useTokenStore } from '../stores/token';
 
-    const token = useTokenStore().token
+    
 
     const useRefreshToken = async () => {
+        const token = useTokenStore().token
+        if (!token.access_token) {
+                navigateTo('/login')
+        }
         
-        if (token.expires_in > Date.now()) {
+        if (token.expires_in > new Date().getTime()) {
             console.log('token is still valid')
         } else {
             console.log('token is expired')
@@ -25,5 +29,12 @@
 
 <template>
     <div>Chats</div>
+    <!-- INBOX -->
+
+    <!-- HEADER -->
+
+    <!-- CHAT -->
+
+    <!-- WRITING -->
 </template>
 

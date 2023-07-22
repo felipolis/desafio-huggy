@@ -5,8 +5,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return
     }
 
-    const token = useTokenStore().token
-    if (!token.access_token) {
+    /* const token = useTokenStore().token
+    console.log(token)
+    if (token.access_token) {
+        console.log('no token')
         return navigateTo('/login')
-    }
+    } */
 })

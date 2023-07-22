@@ -11,10 +11,20 @@ export const useTokenStore = defineStore('token', () => {
     })
 
     const setToken = (data) => {
+        const dataAtual = new Date()
+        const timestampEmMilisegundos = dataAtual.getTime()
+        const expires_em_milisegundos = data.expires_in * 1000
+        const timestampExpiração = timestampEmMilisegundos + expires_em_milisegundos
+        const dataExpiração = new Date(timestampExpiração)
+
+        //console.log("data atual: ", dataAtual)
+        //console.log("timestamp atual: ", timestampEmMilisegundos)
+        //console.log("timestamp expiração: ", timestampExpiração)
+        //console.log("data expiração: ", dataExpiração)
+
+
         token.value.token_type = data.token_type
-        token.value.expires_in = new Date().getSeconds(
-            new Date().getSeconds() + data.expires_in
-        )
+        token.value.expires_in = timestampExpiração
         token.value.access_token = data.access_token
         token.value.refresh_token = data.refresh_token
     }
