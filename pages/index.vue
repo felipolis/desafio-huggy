@@ -17,61 +17,61 @@
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
         },
         {
-            id: 1,
+            id: 3,
             name: 'Agostinho Carrara',
             avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
             lastMessage: '199,99'
         },
         {
-            id: 2,
+            id: 4,
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
         },
         {
-            id: 1,
+            id: 5,
             name: 'Agostinho Carrara',
             avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
             lastMessage: '199,99'
         },
         {
-            id: 2,
+            id: 6,
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
         },
         {
-            id: 1,
+            id: 7,
             name: 'Agostinho Carrara',
             avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
             lastMessage: '199,99'
         },
         {
-            id: 2,
+            id: 8,
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
         },
         {
-            id: 1,
+            id: 9,
             name: 'Agostinho Carrara',
             avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
             lastMessage: '199,99'
         },
         {
-            id: 2,
+            id: 10,
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
         },
         {
-            id: 1,
+            id: 11,
             name: 'Agostinho Carrara',
             avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
             lastMessage: '199,99'
         },
         {
-            id: 2,
+            id: 12,
             name: 'Beiçola',
             avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
             lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
@@ -85,7 +85,8 @@
     const selectUser = (user) => {
         selectedUser.value = user
         userSore.setUser(user)
-        console.log(userSore.user)
+        console.log(selectedUser.value)
+        console.log(user)
     }
 
     const useRefreshToken = async () => {
@@ -126,7 +127,7 @@
                         class="chatCard" 
                         v-for="(user, index) in users" :key="index"
                         @click="selectUser(user)"
-                        :class="{'selected': selectedUser === user}"    
+                        :class="{'selected': selectedUser?.id === user.id}"    
                     >
                         <img class="avatar" :src="user.avatar" alt="avatar" />
                         <div class="messageInfo">
@@ -138,6 +139,7 @@
                 </div>
 
             </div>
+
             <!-- RIGTH -->
             <div class="mensagens">
 
@@ -198,6 +200,14 @@
         }
     }
 
+    .selected {
+        background-color: $fill-primary-0;
+
+        .contactName {
+            color: $text-neutral-low-cta !important;
+        }
+    }
+
     .cardList {
         width: 100%;
         height: 90%;
@@ -209,9 +219,15 @@
         overflow-y: scroll;
         padding: 8px 0px 8px 0px;
 
-        .selected {
+        .chatCard:hover {
             background-color: $fill-primary-0;
+            box-shadow: 0px 2px 8px 0px #0000001F;
         }
+
+        .chatCard:active {
+            background-color: $fill-primary-1;
+        }
+
 
         .chatCard {
             width: 100%;
@@ -227,7 +243,9 @@
 
             .avatar {
                 min-width: 52px;
+                max-width: 52px;
                 min-height: 52px;
+                max-height: 52px;
                 border-radius: 8px;
                 border: 1px solid $border-neutral-1;
             }
@@ -239,14 +257,14 @@
                 align-items: flex-start;
 
                 .contactName {
-                    font-size: 16px;
-                    font-weight: 500;
+                    font-size: $body-1;
+                    font-weight: bold;
                     line-height: 25.6px;
-                    color: $text-neutral-low-cta;
+                    color: $text-neutral-low-strong;
                 }
 
                 .lastMessage {
-                    font-size: 14px;
+                    font-size: $body-2;
                     font-weight: 400;
                     line-height: 25.2px;
                     color: $text-neutral-low-default;
