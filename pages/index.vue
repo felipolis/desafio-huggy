@@ -1,5 +1,21 @@
 <script setup>
     import { useTokenStore } from '../stores/token';
+    import { ref } from 'vue'
+
+    const users = ref([
+        {
+            id: 1,
+            name: 'Agostinho Carrara',
+            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
+            lastMessage: '199,99'
+        },
+        {
+            id: 2,
+            name: 'Beiçola',
+            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
+            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
+        }
+    ])
 
     
 
@@ -37,19 +53,11 @@
                 </div>
                 <div class="cardList">
 
-                    <div class="chatCard">
-                        <div class="avatar"></div>
+                    <div class="chatCard" v-for="(user, index) in users" :key="index">
+                        <img class="avatar" :src="user.avatar" alt="avatar" />
                         <div class="messageInfo">
-                            <div class="contactName">Agostinho Carrara</div>
-                            <div class="lastMessage">199,99</div>
-                        </div>
-                    </div>
-
-                    <div class="chatCard">
-                        <div class="avatar"></div>
-                        <div class="messageInfo">
-                            <div class="contactName">Beiçola</div>
-                            <div class="lastMessage">Precisamos ver dos fiado, tem muita gente nisso, sabe</div>
+                            <div class="contactName">{{user.name}}</div>
+                            <div class="lastMessage">{{user.lastMessage}}</div>
                         </div>
                     </div>
 
