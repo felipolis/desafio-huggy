@@ -38,6 +38,7 @@
             const token = await fetchToken()
             tokenStore.setToken(token)
             console.log(token)
+            navigateTo('/')
         } catch (error) {
             console.error(error)
         }
