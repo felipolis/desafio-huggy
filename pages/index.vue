@@ -1,5 +1,6 @@
 <script setup>
     import { useTokenStore } from '../stores/token';
+    import { useUserStore } from '../stores/user';
     import { ref } from 'vue'
 
     const users = ref([
@@ -77,14 +78,15 @@
         },
         
     ])
-
+    
+    const userSore = useUserStore()
     const selectedUser = ref(null)
 
     const selectUser = (user) => {
         selectedUser.value = user
+        userSore.setUser(user)
+        console.log(userSore.user)
     }
-
-    
 
     const useRefreshToken = async () => {
         const token = useTokenStore().token
