@@ -10,6 +10,9 @@ import { useChatStore } from '../stores/chat';
     const chatStore = useChatStore()
     const chat = useChatStore().chat
 
+    const sendLoading = ref(false)
+    const imageLoading = ref(false)
+
 
     const image = ref(null)
     const message = ref('')
@@ -21,6 +24,7 @@ import { useChatStore } from '../stores/chat';
     };
 
     const setImage = (pics) => {
+        imageLoading.value = true
         if (pics === undefined) {
             return
         }
@@ -47,6 +51,7 @@ import { useChatStore } from '../stores/chat';
         } else {
             console.log('Formato de arquivo não suportado')
         }
+        imageLoading.value = false
     }
 
     const cancelImage = () => {
@@ -57,6 +62,7 @@ import { useChatStore } from '../stores/chat';
         const id = chat.id
         
         try {
+            sendLoading.value = true
             const response = await fetch(`http://localhost:3000/api/chats/${id}/messages`, {
                 method: 'POST',
                 headers: {
@@ -76,8 +82,10 @@ import { useChatStore } from '../stores/chat';
 
             message.value = ''
             image.value = ''
+            sendLoading.value = false
         } catch (error) {
             console.error(error)
+            sendLoading.value = false
         }
     }
 
@@ -94,7 +102,7 @@ import { useChatStore } from '../stores/chat';
                 v-model="message"
             ></textarea>
             <div class="footer" :class="{'borderT' : image}">
-                <div class="image" v-if="image">
+                <div class="image" v-if="image" v-loading="imageLoading">
                     <img :src="image" alt="image" />
                 </div>
                 <div class="imageIcon" v-if="!image">
@@ -114,6 +122,7 @@ import { useChatStore } from '../stores/chat';
         <button
             :disabled="!message && !image"
             @click="sendMessage"
+            v-loading="sendLoading"
         >
             Enviar
         </button>
