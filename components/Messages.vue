@@ -81,7 +81,7 @@
     .messageSection {
         min-width: 510px;
         /* max-height: calc(735.19px - 64px); */
-        max-height: 500px;
+        height: auto;
         display: flex;
         flex-direction: column;
         background-color: $fill-neutral-low-1;

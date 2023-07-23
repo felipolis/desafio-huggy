@@ -1,8 +1,13 @@
 <script setup>
     const config = useRuntimeConfig().app
 
-    const image = ref('https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2023/04/14/594335823-harry-potter.jpg')
-    //'https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2023/04/14/594335823-harry-potter.jpg'
+    const image = ref(null)
+
+    const adjustTextareaHeight = (event) => {
+        const textarea = event.target
+        textarea.style.height = 'auto'
+        textarea.style.height = textarea.scrollHeight + 'px'
+    };
 
     const setImage = (pics) => {
         if (pics === undefined) {
@@ -42,11 +47,13 @@
 <template>
     <div class="writingSection">
         <div class="writingBar">
-            <input 
-                type="text" 
-                placeholder="Escreva sua mensagem..." 
-            />
-            <div class="footer">
+            <textarea 
+                ref="textarea"
+                placeholder="Escreva sua mensagem..."
+                rows="1"
+                @input="adjustTextareaHeight"
+            ></textarea>
+            <div class="footer" :class="{'borderT' : image}">
                 <div class="image" v-if="image">
                     <img :src="image" alt="image" />
                 </div>
@@ -73,6 +80,10 @@
 <style lang="scss">
     @import "@/assets/scss/global.scss";
 
+    .borderT {
+        border-top: 1px solid $border-neutral-1;
+    }
+
     .writingSection {
         display: flex;
         flex-direction: column;
@@ -90,13 +101,15 @@
             border-radius: 4px;
             border: 1px solid $border-neutral-1;
 
-            input {
+            textarea {
                 width: 100%;
-                height: 100%;
+                height: auto;
                 padding: 4px 12px 4px 12px;
                 font-size: $body-1;
                 color: $text-neutral-low-default;
                 border: none;
+                resize: none;
+
 
                 &:focus {
                     outline: none;
@@ -135,15 +148,15 @@
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
-                    cursor: pointer;
+                    cursor: pointer !important;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     position: relative;
                     
                     input {
-                        cursor: pointer;
-                        opacity: 0;
+                        cursor: pointer !important;
+                        opacity: 0; 
                         width: 100%;
                         height: 100%;
                         position: absolute;
@@ -159,7 +172,7 @@
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
-                    cursor: pointer;
+                    cursor: pointer !important;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -180,6 +193,21 @@
             padding-right: 24px;
             cursor: pointer;
             border: none;
+
+            &:hover {
+                background-color: $fill-success-3;
+                box-shadow: 0px 4px 8px 0px #00000029;
+            }
+
+            &:active {
+                background-color: $fill-success-5;
+            }
+
+            &:disabled {
+                background-color: $fill-neutral-low-4;
+                color: $text-neutral-low-disabled;
+                cursor: not-allowed;
+            }
         }
     }
 </style>

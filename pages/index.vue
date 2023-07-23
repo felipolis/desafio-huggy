@@ -65,7 +65,7 @@
 
             <!-- RIGTH -->
             <div class="mensagens">
-                <div v-if="chatStore.chat.id">
+                <div v-if="chatStore.chat.id" class="msgs">
                     <!-- HEADER -->
                     <H3ader />
 
@@ -110,6 +110,13 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+
+        .msgs {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
         
 
