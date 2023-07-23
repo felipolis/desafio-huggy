@@ -12,6 +12,8 @@ Desafio aplicado no processo seletivo da Huggy
 
 ![image](https://github.com/felipolis/desafio/blob/main/assets/layout/4.png?raw=true)
 
+## Video de Demonstração
+
 ## Setup
 
 1. Clone este projeto
@@ -133,3 +135,5 @@ Desafio aplicado no processo seletivo da Huggy
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/12.png?raw=true)
 
    j) Pronto, você ja pode navegar pela aplicação através desse link publico temporario...
+
+***Made by Felipe Archanjo.***
