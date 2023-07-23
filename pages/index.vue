@@ -1,88 +1,14 @@
 <script setup>
     import { useTokenStore } from '../stores/token';
-    import { useUserStore } from '../stores/user';
+    import { useChatStore } from '../stores/chat';
     import { ref } from 'vue'
 
-    const users = ref([
-        {
-            id: 1,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 2,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        {
-            id: 3,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 4,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        {
-            id: 5,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 6,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        {
-            id: 7,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 8,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        {
-            id: 9,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 10,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        {
-            id: 11,
-            name: 'Agostinho Carrara',
-            avatar: 'https://s2-gshow.glbimg.com/19J9NXPOE9EvzcwcsxwUs_0uT4g=/0x0:1440x800/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/n/B/bEDK6CRByxaLqqPA3kog/20091021-a-grande-familia-ac-006-abre.jpg',
-            lastMessage: '199,99'
-        },
-        {
-            id: 12,
-            name: 'Beiçola',
-            avatar: 'https://www.metroworldnews.com.br/resizer/wOFdaIF0annpm50m3UQKdm6Bdyw=/1024x1024/filters:format(jpg):quality(70):focal(389x147:399x157)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/REPJOHSVXZBUNFB5EUN4A6WEZI.jpg',
-            lastMessage: 'Precisamos ver dos fiado, tem muita gente nisso, sabe'
-        },
-        
-    ])
-    
-    const userSore = useUserStore()
+    const chatStore = useChatStore()
 
-    const selectUser = (user) => {
-        userSore.setUser(user)
+    const chats = ref([])
+
+    const selectChat = (chat) => {
+        chatStore.setChat(chat)
     }
 
     const useRefreshToken = async () => {
@@ -98,10 +24,32 @@
         }
     }
 
+    const fetchChats = async () => {
+        const token = useTokenStore().token
+
+        try {
+            const response = await fetch('http://localhost:3000/api/chats', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                    'Authorization': `Bearer ${token.access_token}`
+                },
+            })
+            const data = await response.json()
+            chats.value = data
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     onMounted(async () => {
         try {
             await useRefreshToken()
+
+            await fetchChats()
+
+            
         } catch (error) {
             console.error(error)
         }
@@ -113,14 +61,13 @@
     <div class="container">
         <div class="main">
             <!-- LEFT -->
-            <Inbox :users="users" :selectUser="selectUser" />
+            <Inbox :chats="chats" :selectChat="selectChat" />
 
             <!-- RIGTH -->
             <div class="mensagens">
-                <div v-if="userSore.user.name !== ''">
+                <div v-if="chatStore.chat.id">
                     <!-- HEADER -->
                     <H3ader />
-
 
                 </div>
                 <div v-else>

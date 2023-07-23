@@ -1,16 +1,17 @@
 <script setup>
-    import { useUserStore } from '../stores/user';
+    import { useChatStore } from '../stores/chat';
 
-    const userSore = useUserStore()
+    const chat = useChatStore().chat
+    console.log(chat)
 
 </script>
 
 <template>
     <div class="headerSection">
         <div class="avatar">
-            <img :src="userSore.user.avatar" alt="avatar" />
+            <img :src="chat?.chatCustomer?.photo" alt="avatar" />
         </div>
-        <div class="contactName">{{ userSore.user.name }}</div>
+        <div class="contactName">{{ chat?.chatCustomer?.name }}</div>
     </div>
 </template>
 

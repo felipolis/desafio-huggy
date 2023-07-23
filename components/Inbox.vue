@@ -1,14 +1,14 @@
 <script setup>
-    import { useUserStore } from '../stores/user';
+    import { useChatStore } from '../stores/chat';
 
-    const userStore = useUserStore()
+    const chatStore = useChatStore()
 
     const props = defineProps({
-        users: {
+        chats: {
             type: Array,
             required: true
         },
-        selectUser: {
+        selectChat: {
             type: Function,
             required: true
         }
@@ -25,14 +25,14 @@
 
             <div 
                 class="chatCard" 
-                v-for="(user, index) in users" :key="index"
-                @click="selectUser(user)"
-                :class="{'selected': userStore.user?.id === user.id}"    
+                v-for="(chat, index) in chats" :key="index"
+                @click="selectChat(chat)"
+                :class="{'selected': chatStore.chat?.id === chat.id}"    
             >
-                <img class="avatar" :src="user.avatar" alt="avatar" />
+                <img class="avatar" :src="chat.chatCustomer?.photo" alt="avatar" />
                 <div class="messageInfo">
-                    <div class="contactName">{{user.name}}</div>
-                    <div class="lastMessage">{{user.lastMessage}}</div>
+                    <div class="contactName">{{chat.chatCustomer?.name}}</div>
+                    <div class="lastMessage">{{chat.lastMessage?.text}}</div>
                 </div>
             </div>
 
@@ -136,6 +136,10 @@
                     font-weight: bold;
                     line-height: 25.6px;
                     color: $text-neutral-low-strong;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 204px;
                 }
 
                 .lastMessage {
