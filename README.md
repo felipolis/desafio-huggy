@@ -1,63 +1,101 @@
-# Nuxt 3 Minimal Starter
+# Desafio Huggy
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Desafio aplicado no processo seletivo da Huggy
 
 ## Setup
 
-Make sure to install the dependencies:
+1. Clone este projeto
 
-```bash
-# npm
-npm install
+   ```
+   $ git clone https://github.com/felipolis/desafio.git
+   $ cd desafio
+   ```
+2. Instale as dependencias
 
-# pnpm
-pnpm install
+   ```
+   $ yarn
+   ```
+3. Copie o arquivo .env
+4. ```
+   cp .env.example .env
+   ```
+5. Configure o Cloudinary
+   a) Em primeiro lugar, crie uma conta no cloudinary [aqui](https://cloudinary.com)
 
-# yarn
-yarn install
-```
+   b) Clique em "Settings"
 
-## Development Server
+   c) Clique em "Upload"
 
-Start the development server on `http://localhost:3000`:
+   d) Role o scroll ate encontrar "Add upload preset" e clique nele
 
-```bash
-# npm
-npm run dev
+   e) Escolha um nome para o aplicativo (ex: huggy) e defina como "signed"
 
-# pnpm
-pnpm run dev
+   f) Volte ao Dashboard e clique em "More info" para visualizar a API base URL
 
-# yarn
-yarn dev
-```
+   g) Copie a API base URL
 
-## Production
+   e) Volte ao dashboard e copie tambem o "Cloud Name"
 
-Build the application for production:
+   f) Abra o arquivo .env do diretorio do seu projeto e preencha as variavis:
 
-```bash
-# npm
-npm run build
+   - CLOUDINARY_URL: Com a API base URL que você ja obteve, concatenada com + '/image/upload'
 
-# pnpm
-pnpm run build
+     ```
+     CLOUDINARY_URL="https://api.cloudinary.com/v1_1/<CLOUD_NAME>/image/upload"
+     ```
+   - CLOUD_NAME: O Cloud Name que você ja copiou
 
-# yarn
-yarn build
-```
+     ```
+     CLOUD_NAME="<CLOUD_NAME>"
+     ```
+   - PRESET_NAME: O nome do aplicativo cadastrado no cloudinary (ex: huggy)
 
-Locally preview production build:
+     ```
+     PRESET_NAME="<PRESET_NAME>"
+     ```
+6. Cadastre-se na Huggy e crie um aplicativo
 
-```bash
-# npm
-npm run preview
+   a) Clique em "Seus aplicativos"
 
-# pnpm
-pnpm run preview
+   b) Clique em "Adicionar aplicativo" com o nome desejado
 
-# yarn
-yarn preview
-```
+   c) Com isso, o aplicativo será criado e gerado o "ID do cliente" e o "Segredo do cliente", devendo ser adicionados respectivamente em "CLIENT_ID" E "CLIENT_SECRET" do arquivo .env
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+   d) Agora falta a url de redirecionamento
+7. LocalTunnel
+
+   a) Instale o LocalTunnel
+
+   ```
+   $ npm install -g localtunnel
+   ```
+
+   b) Entre no diretorio do projeto e o inicie na porta 3000
+
+   ```
+   $ yarn dev
+   ```
+
+   c) Abra outro terminal e inicie o LocalTunnel na porta 3000 também
+
+   ```
+   $ lt --port 3000
+   ```
+
+   d) Copie o link que foi disponibilizado no segundo terminal e o copie
+
+   e) Volte à página da huggy e cole aquele link concatenado com "/callback" na URL de redirecionamento
+
+   f) abre o arquivo .env e cole o mesmo link na variavel "REDIRECT_URL"
+
+   ```
+   REDIRECT_URL="https://shaggy-cobras-speak.loca.lt/callback"
+   ```
+
+   g) Abra o link gerado pelo segundo terminal no browser (sem o /callback)
+
+   h) clique no [link](https://ipv4.icanhazip.com/) disponibilizado e o copie o IP gerado
+
+   i) cole esse ip no campo solicitado e clique em submit
+
+   j) Pronto, você ja pode navegar pela aplicação através desse link publico temporario...
