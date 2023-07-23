@@ -2,6 +2,16 @@
 
 Desafio aplicado no processo seletivo da Huggy
 
+## Layout
+
+![image](https://github.com/felipolis/desafio/blob/main/assets/layout/1.png?raw=true)
+
+![image](https://github.com/felipolis/desafio/blob/main/assets/layout/2.png?raw=true)
+
+![image](https://github.com/felipolis/desafio/blob/main/assets/layout/3.png?raw=true)
+
+![image](https://github.com/felipolis/desafio/blob/main/assets/layout/4.png?raw=true)
+
 ## Setup
 
 1. Clone este projeto
