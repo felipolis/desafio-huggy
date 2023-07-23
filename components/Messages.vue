@@ -45,6 +45,7 @@
     onMounted(async () => {
         await fetchMessages()
     })
+
 </script>
 
 <template>
