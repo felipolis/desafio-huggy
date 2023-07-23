@@ -72,6 +72,9 @@
                     <!-- MESSAGES -->
                     <Messages />
 
+                    <!-- Write -->
+                    <Writing />
+
                 </div>
                 <div v-else>
                     Selecione um usuário
