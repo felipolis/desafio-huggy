@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: ['~/assets/scss/global.scss'],
   modules: [
     '@pinia/nuxt',
+    '@element-plus/nuxt'
   ],
   runtimeConfig: {
     app: {

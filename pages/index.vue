@@ -3,6 +3,7 @@
     import { useChatStore } from '../stores/chat';
     import { ref } from 'vue'
 
+
     const chatStore = useChatStore()
 
     const chats = ref([])
@@ -61,7 +62,7 @@
     <div class="container">
         <div class="main">
             <!-- LEFT -->
-            <Inbox :chats="chats" :selectChat="selectChat" />
+            <Inbox :chats="chats" :selectChat="selectChat"/>
 
             <!-- RIGTH -->
             <div class="mensagens">
