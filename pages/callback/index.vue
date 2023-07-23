@@ -48,5 +48,16 @@
 </script>
 
 <template>
-    Callback
+    <div class="callback" v-loading="true">
+    </div>
 </template>
+
+<style lang="scss">
+    .callback {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
