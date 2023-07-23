@@ -42,12 +42,16 @@
             console.error(error)
         }
     }
-
+    
+    const loading = ref(false)
     onMounted(async () => {
         try {
+            loading.value = true
             await useRefreshToken()
 
             await fetchChats()
+
+            loading.value = false
 
             
         } catch (error) {
@@ -55,10 +59,11 @@
         }
     })
 
+
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" v-loading="loading">
         <div class="main">
             <!-- LEFT -->
             <Inbox :chats="chats" :selectChat="selectChat"/>

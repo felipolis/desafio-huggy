@@ -8,6 +8,8 @@
 
     const page = ref(0)
 
+    const loading = ref(false)
+
     const fetchMessages = async () => {
         const id = chat.id
 
@@ -81,12 +83,15 @@
     }
 
     onMounted(async () => {
+        loading.value = true
         await fetchMessages()
 
         const messageSection = document.querySelector('.messageSection')    
         messageSection.scrollTop = messageSection.scrollHeight
 
         messageSection.addEventListener('scroll', scrollWatcher)
+
+        loading.value = false
 
     })
 
@@ -98,7 +103,7 @@
 </script>
 
 <template>
-    <div class="messageSection">
+    <div class="messageSection" v-loading="loading">
         <div 
             :class="{'contactMessageContainer': message.sender?.id === message.chat?.customer?.id, 'userMessageContainer': message.sender?.id !== message.chat?.customer?.id}"
             v-for="message in chatStore.messages"
