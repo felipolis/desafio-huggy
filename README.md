@@ -46,23 +46,27 @@ Desafio aplicado no processo seletivo da Huggy
 
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/3.png?raw=true)
 
-   e) Escolha um nome para o aplicativo (ex: huggy) e defina como "signed"
+   e) Escolha um nome para o aplicativo (ex: huggy-challenge) e defina como "unsigned e clique em salvar"
 
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/4.png?raw=true)
 
-   f) Volte ao Dashboard e clique em "More info" para visualizar a API base URL
+   f) Ative o unsigned uploading e clique em salvar
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/13.png?raw=true)
+
+   g) Volte ao Dashboard e clique em "More info" para visualizar a API base URL
 
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/5.png?raw=true)
 
-   g) Copie a API base URL
+   h) Copie a API base URL
 
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/6.png?raw=true)
 
-   h) Volte ao dashboard e copie tambem o "Cloud Name"
+   i) Volte ao dashboard e copie tambem o "Cloud Name"
 
    ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/7.png?raw=true)
 
-   i) Abra o arquivo .env do diretorio do seu projeto e preencha as variavis:
+   j) Abra o arquivo .env do diretorio do seu projeto e preencha as variavis:
 
    - CLOUDINARY_URL: Com a API base URL que você ja obteve, concatenada com + '/image/upload'
 
@@ -74,12 +78,12 @@ Desafio aplicado no processo seletivo da Huggy
      ```
      CLOUD_NAME="<CLOUD_NAME>"
      ```
-   - PRESET_NAME: O nome do aplicativo cadastrado no cloudinary (ex: huggy)
+   - PRESET_NAME: O nome do aplicativo cadastrado no cloudinary (ex: huggy-challenge)
 
      ```
      PRESET_NAME="<PRESET_NAME>"
      ```
-6. Cadastre-se na Huggy e crie um aplicativo
+7. Cadastre-se na Huggy e crie um aplicativo
 
    a) Clique em "Seus aplicativos"
 
@@ -88,7 +92,7 @@ Desafio aplicado no processo seletivo da Huggy
    c) Com isso, o aplicativo será criado e gerado o "ID do cliente" e o "Segredo do cliente", devendo ser adicionados respectivamente em "CLIENT_ID" E "CLIENT_SECRET" do arquivo .env
 
    d) Agora falta a url de redirecionamento
-7. LocalTunnel
+8. LocalTunnel
 
    a) Instale o LocalTunnel
 
