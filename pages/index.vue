@@ -69,6 +69,9 @@
                     <!-- HEADER -->
                     <H3ader />
 
+                    <!-- MESSAGES -->
+                    <Messages />
+
                 </div>
                 <div v-else>
                     Selecione um usuário

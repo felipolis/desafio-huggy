@@ -2,9 +2,10 @@
 export default defineEventHandler(async (event) => {
 
     try {
+        const { id } = event.context.params
         const authorization = event.req.headers.authorization
 
-        const response = await fetch('https://api.huggy.app/v3/chats', {
+        const response = await fetch(`https://api.huggy.app/v3/chats/${id}/messages`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
