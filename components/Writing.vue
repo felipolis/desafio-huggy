@@ -1,7 +1,15 @@
 <script setup>
+
+import { useChatStore } from '../stores/chat';
+    import { useTokenStore } from '../stores/token';
+
+    const token = useTokenStore().token
+    const chat = useChatStore().chat
+
     const config = useRuntimeConfig().app
 
     const image = ref(null)
+    const message = ref('')
 
     const adjustTextareaHeight = (event) => {
         const textarea = event.target
@@ -42,6 +50,31 @@
         image.value = ''
     }
 
+    const sendMessage = async () => {
+        const id = chat.id
+        
+        try {
+            const response = await fetch(`http://localhost:3000/api/chats/${id}/messages`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                    'Authorization': `Bearer ${token.access_token}`
+                },
+                body: JSON.stringify({
+                    text: message.value,
+                    file: image.value,
+                    isInternal: false
+                })
+            })
+
+            const data = await response.json()
+            console.log(data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
 </script>
 
 <template>
@@ -52,6 +85,7 @@
                 placeholder="Escreva sua mensagem..."
                 rows="1"
                 @input="adjustTextareaHeight"
+                v-model="message"
             ></textarea>
             <div class="footer" :class="{'borderT' : image}">
                 <div class="image" v-if="image">
@@ -71,7 +105,10 @@
                 </div>
             </div>
         </div>
-        <button>
+        <button
+            :disabled="!message && !image"
+            @click="sendMessage"
+        >
             Enviar
         </button>
     </div>
