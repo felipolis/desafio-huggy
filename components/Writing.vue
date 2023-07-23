@@ -75,6 +75,7 @@ import { useChatStore } from '../stores/chat';
             chatStore.addMessage(data)
 
             message.value = ''
+            image.value = ''
         } catch (error) {
             console.error(error)
         }
