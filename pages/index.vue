@@ -27,7 +27,6 @@
 
     const fetchChats = async () => {
         const token = useTokenStore().token
-
         try {
             const response = await fetch('http://localhost:3000/api/chats', {
                 method: 'GET',
@@ -77,7 +76,7 @@
                     <Writing />
 
                 </div>
-                <div v-else>
+                <div v-else class="selecione">
                     Selecione um usuário
                 </div>
             </div>
@@ -117,6 +116,16 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        .selecione {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: $fill-neutral-low-2;
         }
 
         
