@@ -6,11 +6,13 @@
     const chatStore = useChatStore()
     const chat = useChatStore().chat
 
+    const page = ref(0)
+
     const fetchMessages = async () => {
         const id = chat.id
 
         try {
-            const response = await fetch(`http://localhost:3000/api/chats/${id}/messages`, {
+            const response = await fetch(`http://localhost:3000/api/chats/${id}/messages?page=${page.value}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,6 +30,43 @@
         }
 
     }
+
+    /* wahcer do scroll. caso esteja no topo, exiba um log avisando */
+    const scrollWatcher = async () => {
+        const messageSection = document.querySelector('.messageSection')
+        const scrollHeight = messageSection.scrollHeight
+        const scrollTop = messageSection.scrollTop
+        const clientHeight = messageSection.clientHeight
+
+        if (scrollTop === 0) {
+            console.log('topo')
+
+            page.value += 1
+
+            const id = chat.id
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/chats/${id}/messages?page=${page.value}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                    'Authorization': `Bearer ${token.access_token}`
+                }
+                })
+
+                const data = await response.json()
+                console.log(data)
+                chatStore.addMessagesFirst(data.reverse())
+                console.log(chatStore.messages)
+
+            } catch (error) {
+                console.error(error)
+            }
+
+        }
+    }
+    
 
     const getMetadata = (message) => {
         const date = new Date(message.sendAt)
@@ -47,6 +86,13 @@
         const messageSection = document.querySelector('.messageSection')    
         messageSection.scrollTop = messageSection.scrollHeight
 
+        messageSection.addEventListener('scroll', scrollWatcher)
+
+    })
+
+    onUnmounted(() => {
+        const messageSection = document.querySelector('.messageSection')    
+        messageSection.removeEventListener('scroll', scrollWatcher)
     })
 
 </script>

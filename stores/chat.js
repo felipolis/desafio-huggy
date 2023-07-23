@@ -15,7 +15,11 @@ export const useChatStore = defineStore('chat', () => {
 
     const addMessage = (data) => {
         messages.value.push(data)
-        console.log(messages.value)
+    }
+
+    const addMessagesFirst = (data) => {
+        // concatena o array data com o array messages
+        messages.value = data.concat(messages.value)
     }
 
     return {
@@ -23,6 +27,7 @@ export const useChatStore = defineStore('chat', () => {
         setChat,
         messages,
         setMessages,
-        addMessage
+        addMessage,
+        addMessagesFirst
     }
 })
