@@ -3,10 +3,13 @@
 import { useChatStore } from '../stores/chat';
     import { useTokenStore } from '../stores/token';
 
+    const config = useRuntimeConfig().app
+
     const token = useTokenStore().token
+
+    const chatStore = useChatStore()
     const chat = useChatStore().chat
 
-    const config = useRuntimeConfig().app
 
     const image = ref(null)
     const message = ref('')
@@ -69,6 +72,9 @@ import { useChatStore } from '../stores/chat';
             })
 
             const data = await response.json()
+            chatStore.addMessage(data)
+
+            message.value = ''
         } catch (error) {
             console.error(error)
         }

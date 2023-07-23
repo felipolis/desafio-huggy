@@ -3,9 +3,8 @@
     import { useTokenStore } from '../stores/token';
 
     const token = useTokenStore().token
+    const chatStore = useChatStore()
     const chat = useChatStore().chat
-
-    const messages = ref([])
 
     const fetchMessages = async () => {
         const id = chat.id
@@ -22,7 +21,7 @@
 
             const data = await response.json()
 
-            messages.value = data.reverse()
+            chatStore.setMessages(data.reverse())
 
         } catch (error) {
             console.error(error)
@@ -44,6 +43,10 @@
 
     onMounted(async () => {
         await fetchMessages()
+
+        const messageSection = document.querySelector('.messageSection')    
+        messageSection.scrollTop = messageSection.scrollHeight
+
     })
 
 </script>
@@ -52,7 +55,7 @@
     <div class="messageSection">
         <div 
             :class="{'contactMessageContainer': message.sender?.id === message.chat?.customer?.id, 'userMessageContainer': message.sender?.id !== message.chat?.customer?.id}"
-            v-for="message in messages"
+            v-for="message in chatStore.messages"
             :key="message.id"
         >
             <div class="message">
