@@ -23,20 +23,34 @@ Desafio aplicado no processo seletivo da Huggy
    a) Em primeiro lugar, crie uma conta no cloudinary [aqui](https://cloudinary.com)
 
    b) Clique em "Settings"
+   
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/1.png?raw=true)
 
    c) Clique em "Upload"
 
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/2.png?raw=true)
+
    d) Role o scroll ate encontrar "Add upload preset" e clique nele
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/3.png?raw=true)
 
    e) Escolha um nome para o aplicativo (ex: huggy) e defina como "signed"
 
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/4.png?raw=true)
+
    f) Volte ao Dashboard e clique em "More info" para visualizar a API base URL
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/5.png?raw=true)
 
    g) Copie a API base URL
 
-   e) Volte ao dashboard e copie tambem o "Cloud Name"
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/6.png?raw=true)
 
-   f) Abra o arquivo .env do diretorio do seu projeto e preencha as variavis:
+   h) Volte ao dashboard e copie tambem o "Cloud Name"
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/7.png?raw=true)
+
+   i) Abra o arquivo .env do diretorio do seu projeto e preencha as variavis:
 
    - CLOUDINARY_URL: Com a API base URL que você ja obteve, concatenada com + '/image/upload'
 
@@ -53,7 +67,7 @@ Desafio aplicado no processo seletivo da Huggy
      ```
      PRESET_NAME="<PRESET_NAME>"
      ```
-6. Cadastre-se na Huggy e crie um aplicativo
+7. Cadastre-se na Huggy e crie um aplicativo
 
    a) Clique em "Seus aplicativos"
 
@@ -62,7 +76,7 @@ Desafio aplicado no processo seletivo da Huggy
    c) Com isso, o aplicativo será criado e gerado o "ID do cliente" e o "Segredo do cliente", devendo ser adicionados respectivamente em "CLIENT_ID" E "CLIENT_SECRET" do arquivo .env
 
    d) Agora falta a url de redirecionamento
-7. LocalTunnel
+8. LocalTunnel
 
    a) Instale o LocalTunnel
 
@@ -84,7 +98,11 @@ Desafio aplicado no processo seletivo da Huggy
 
    d) Copie o link que foi disponibilizado no segundo terminal e o copie
 
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/8.png?raw=true)
+
    e) Volte à página da huggy e cole aquele link concatenado com "/callback" na URL de redirecionamento
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/9.png?raw=true)
 
    f) abre o arquivo .env e cole o mesmo link na variavel "REDIRECT_URL"
 
@@ -94,8 +112,14 @@ Desafio aplicado no processo seletivo da Huggy
 
    g) Abra o link gerado pelo segundo terminal no browser (sem o /callback)
 
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/10.png?raw=true)
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/11.png?raw=true)
+
    h) clique no [link](https://ipv4.icanhazip.com/) disponibilizado e o copie o IP gerado
 
    i) cole esse ip no campo solicitado e clique em submit
+
+   ![image](https://github.com/felipolis/desafio/blob/main/assets/tutorial/12.png?raw=true)
 
    j) Pronto, você ja pode navegar pela aplicação através desse link publico temporario...
