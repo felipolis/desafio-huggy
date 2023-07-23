@@ -3,7 +3,7 @@
     import { useChatStore } from '../stores/chat';
     import { ref } from 'vue'
 
-
+    const config = useRuntimeConfig().app
     const chatStore = useChatStore()
 
     const chats = ref([])
@@ -22,6 +22,22 @@
             console.log('token is still valid')
         } else {
             console.log('token is expired')
+            const response = await fetch('http://localhost:3000/api/oauth/access_token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'access-token': token.access_token,
+                },
+                body: JSON.stringify({
+                    grant_type: 'refresh_token',
+                    client_id: `${config.clientId}`,
+                    client_secret: `${config.clientSecret}`,
+                    refresh_token: `${token.refresh_token}`,
+                })
+
+            }).then((response) => response.json())
+
+            useTokenStore().setToken(response)
         }
     }
 
