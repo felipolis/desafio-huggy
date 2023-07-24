@@ -50,7 +50,7 @@
 
             page.value += 1
 
-            const id = chat.id
+            const id = useChatStore().chat.id
 
             try {
                 const response = await fetch(`http://localhost:3000/api/chats/${id}/messages?page=${page.value}`, {
@@ -138,6 +138,7 @@
 
     .messageSection {
         min-width: 510px;
+        max-width: 510px;
         /* max-height: calc(735.19px - 64px); */
         height: 100%;
         display: flex;
