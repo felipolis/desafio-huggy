@@ -8,7 +8,7 @@ import { useChatStore } from '../stores/chat';
     const token = useTokenStore().token
 
     const chatStore = useChatStore()
-    const chat = useChatStore().chat
+    
 
     const sendLoading = ref(false)
     const imageLoading = ref(false)
@@ -59,7 +59,7 @@ import { useChatStore } from '../stores/chat';
     }
 
     const sendMessage = async () => {
-        const id = chat.id
+        const id = chatStore.chat.id
         
         try {
             sendLoading.value = true

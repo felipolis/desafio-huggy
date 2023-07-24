@@ -7,12 +7,13 @@
         chats: {
             type: Array,
             required: true
-        },
-        selectChat: {
-            type: Function,
-            required: true
         }
     })
+
+    const selectChat = (chat) => {
+        chatStore.setChat(chat)
+        console.log(chatStore.chat)
+    }
 
 </script>
 
@@ -59,7 +60,7 @@
 
     .inboxTitle {
         width: 100%;
-        height: 10%;
+        height: 64px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;

@@ -82,7 +82,7 @@
     <div class="container" v-loading="loading">
         <div class="main">
             <!-- LEFT -->
-            <Inbox :chats="chats" :selectChat="selectChat"/>
+            <Inbox :chats="chats" />
 
             <!-- RIGTH -->
             <div class="mensagens">

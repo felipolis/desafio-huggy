@@ -1,17 +1,16 @@
 <script setup>
     import { useChatStore } from '../stores/chat';
 
-    const chat = useChatStore().chat
-    console.log(chat)
+    const chatStore = useChatStore()
 
 </script>
 
 <template>
     <div class="headerSection">
         <div class="avatar">
-            <img :src="chat?.chatCustomer?.photo" alt="avatar" />
+            <img :src="chatStore.chat?.chatCustomer?.photo" alt="avatar" />
         </div>
-        <div class="contactName">{{ chat?.chatCustomer?.name }}</div>
+        <div class="contactName">{{ chatStore.chat?.chatCustomer?.name }}</div>
     </div>
 </template>
 
@@ -28,6 +27,7 @@
         padding-left: 16px;
         background-color: $fill-neutral-low-0;
         gap: 8px;
+        padding: 10px;
 
         .avatar {
             width: 40px;

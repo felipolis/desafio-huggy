@@ -4,14 +4,21 @@
 
     const token = useTokenStore().token
     const chatStore = useChatStore()
-    const chat = useChatStore().chat
 
     const page = ref(0)
 
     const loading = ref(false)
 
+    watch(async () => chatStore.chat, async (newValue, oldValue) => {
+        console.log('watcher')
+        page.value = 0;
+        await fetchMessages()
+        const messageSection = document.querySelector('.messageSection')    
+        messageSection.scrollTop = messageSection.scrollHeight
+    })
+
     const fetchMessages = async () => {
-        const id = chat.id
+        const id = useChatStore().chat.id
 
         try {
             const response = await fetch(`http://localhost:3000/api/chats/${id}/messages?page=${page.value}`, {
@@ -136,7 +143,7 @@
     .messageSection {
         min-width: 510px;
         /* max-height: calc(735.19px - 64px); */
-        height: auto;
+        height: 100%;
         display: flex;
         flex-direction: column;
         background-color: $fill-neutral-low-1;
