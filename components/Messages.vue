@@ -10,7 +10,6 @@
     const loading = ref(false)
 
     watch(async () => chatStore.chat, async (newValue, oldValue) => {
-        console.log('watcher')
         page.value = 0;
         await fetchMessages()
         const messageSection = document.querySelector('.messageSection')    
@@ -48,7 +47,6 @@
         const clientHeight = messageSection.clientHeight
 
         if (scrollTop === 0) {
-            console.log('topo')
 
             page.value += 1
 
@@ -65,9 +63,7 @@
                 })
 
                 const data = await response.json()
-                console.log(data)
                 chatStore.addMessagesFirst(data.reverse())
-                console.log(chatStore.messages)
 
             } catch (error) {
                 console.error(error)

@@ -12,7 +12,6 @@
 
     const selectChat = (chat) => {
         chatStore.setChat(chat)
-        console.log(chatStore.chat)
     }
 
 </script>

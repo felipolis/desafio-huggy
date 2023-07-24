@@ -43,7 +43,6 @@ import { useChatStore } from '../stores/chat';
                 .then(res => res.json())
                 .then(data => {
                     image.value = data.url.toString()
-                    console.log(image.value)
                 })
                 .catch(err => {
                     console.log(err)

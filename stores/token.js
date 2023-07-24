@@ -17,12 +17,6 @@ export const useTokenStore = defineStore('token', () => {
         const timestampExpiração = timestampEmMilisegundos + expires_em_milisegundos
         const dataExpiração = new Date(timestampExpiração)
 
-        //console.log("data atual: ", dataAtual)
-        //console.log("timestamp atual: ", timestampEmMilisegundos)
-        //console.log("timestamp expiração: ", timestampExpiração)
-        //console.log("data expiração: ", dataExpiração)
-
-
         token.value.token_type = data.token_type
         token.value.expires_in = timestampExpiração
         token.value.access_token = data.access_token
