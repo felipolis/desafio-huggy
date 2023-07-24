@@ -1,6 +1,8 @@
 
 <script setup>
+    import { useTokenStore } from '../../stores/token';
     const config = useRuntimeConfig().app
+    const tokenStore = useTokenStore()
 
     const login = () => {
         navigateTo(`https://auth.huggy.app/oauth/authorize?scope=install_app%20read_agent_profile&response_type=code&redirect_uri=${config.redirectURL}&client_id=${config.clientId}`, { external: true })
